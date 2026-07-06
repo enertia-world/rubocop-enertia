@@ -1,0 +1,33 @@
+plugins:
+  - rubocop-rspec
+  - rubocop-factory_bot
+  - rubocop-capybara
+
+FactoryBot/AssociationStyle:
+  Enabled: false
+
+FactoryBot/SyntaxMethods:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/**/*'
+    - 'spec/requests/**/*'
+    - 'spec/api/**/*'
+
+RSpec/ExampleLength:
+  Max: 15
+  Exclude:
+    - 'spec/features/**/*'
+    - 'spec/requests/**/*'
+    - 'spec/api/**/*'
+    - 'spec/sidekiq/**/*'
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+RSpec/NestedGroups:
+  Max: 4

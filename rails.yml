@@ -1,0 +1,35 @@
+plugins:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'config/boot.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/routes.rb'
+    - 'config/routes/**/*'
+
+Rails/BulkChangeTable:
+  Database: postgresql
+
+Rails/CreateTableWithTimestamps:
+  Exclude:
+    - 'db/migrate/*_create_active_storage_tables.active_storage.rb'
+    - 'db/migrate/*_create_ahoy_visits_and_events.rb'
+
+Rails/FilePath:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Exclude:
+    - 'lib/tasks/auto_annotate_models.rake'
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
