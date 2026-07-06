@@ -91,7 +91,12 @@ This produces a todo file scoped to the repo's actual current violations under t
 
 ## Versioning
 
-Releases are cut by hand: tag a commit here (e.g. `v0.2.0`), no RubyGems push involved. Consuming apps pin an exact `tag:` in their `Gemfile` rather than a version range, so a rule change here never reaches a repo until someone there bumps the tag and runs `bundle update rubocop-enertia` — deliberately, per repo.
+Releases are cut by hand, no RubyGems push involved. For each release:
+
+1. Bump `spec.version` in `rubocop-enertia.gemspec` to match the new version, and commit it.
+2. Tag that commit (e.g. `v0.2.0`) and push the tag.
+
+The gemspec version and the git tag are not linked by any tooling — nothing fails if they drift apart, so keep them in sync by hand. Consuming apps pin an exact `tag:` in their `Gemfile` rather than a version range, so a rule change here never reaches a repo until someone there bumps the tag and runs `bundle update rubocop-enertia` — deliberately, per repo.
 
 ## License
 
