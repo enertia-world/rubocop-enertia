@@ -1,0 +1,69 @@
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  DisplayCopNames: true
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: keyword
+
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedHashRocketStyle: table
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics:
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/models/**/*'
+    - 'app/controllers/**/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'app/helpers/**/*'
+    - 'app/controllers/concerns/**/*'
+    - 'spec/**/*'
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  EnforcedStyle: percent
