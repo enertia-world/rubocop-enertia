@@ -19,13 +19,13 @@ Adding this one gem to your `Gemfile` pulls in `rubocop`, `rubocop-rails`, `rubo
 Add to your `Gemfile`, pinned to a tag from this repo's [releases](https://github.com/enertia-world/rubocop-enertia/tags):
 
 ```ruby
-gem 'rubocop-enertia', git: 'git@github.com:enertia-world/rubocop-enertia.git', tag: 'v0.1.0', require: false, group: [:development, :test]
+gem 'rubocop-enertia', git: 'git@github.com:enertia-world/rubocop-enertia.git', tag: 'v1.0.0', require: false, group: [:development, :test]
 ```
 
 If your `Gemfile` already defines the `github:` shorthand (`git_source(:github) { |repo| "https://github.com/#{repo}.git" }`), this also works:
 
 ```ruby
-gem 'rubocop-enertia', github: 'enertia-world/rubocop-enertia', tag: 'v0.1.0', require: false, group: [:development, :test]
+gem 'rubocop-enertia', github: 'enertia-world/rubocop-enertia', tag: 'v1.0.0', require: false, group: [:development, :test]
 ```
 
 ### Rails apps
@@ -94,7 +94,7 @@ This produces a todo file scoped to the repo's actual current violations under t
 Releases are cut by hand, no RubyGems push involved. For each release:
 
 1. Bump `spec.version` in `rubocop-enertia.gemspec` to match the new version, and commit it.
-2. Tag that commit (e.g. `v0.2.0`) and push the tag.
+2. Tag that commit (e.g. `v1.0.1`) and push the tag.
 
 The gemspec version and the git tag are not linked by any tooling — nothing fails if they drift apart, so keep them in sync by hand. Consuming apps pin an exact `tag:` in their `Gemfile` rather than a version range, so a rule change here never reaches a repo until someone there bumps the tag and runs `bundle update rubocop-enertia` — deliberately, per repo.
 
