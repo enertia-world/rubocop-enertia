@@ -4,6 +4,8 @@ Omakase Ruby styling for Enertia projects.
 
 Shared RuboCop configuration distributed as a gem, so every Rails app and plain Ruby gem at Enertia inherits the same style instead of copy-pasting a `.rubocop.yml`. This gem ships config only — no custom cops, no plugin code. Consuming repos pull it in via `inherit_gem`.
 
+This gem is private to Enertia's own repos. It isn't published to RubyGems — it's distributed via git tag, referenced directly from each consuming app's `Gemfile`.
+
 ## What's inside
 
 - `default.yml` — base `Layout`/`Lint`/`Metrics`/`Style` rules. No Rails or RSpec required. Use this alone for plain Ruby gems.
@@ -14,10 +16,16 @@ Adding this one gem to your `Gemfile` pulls in `rubocop`, `rubocop-rails`, `rubo
 
 ## Installation
 
-Add to your `Gemfile`:
+Add to your `Gemfile`, pinned to a tag from this repo's [releases](https://github.com/enertia-world/rubocop-enertia/tags):
 
 ```ruby
-gem 'rubocop-enertia', '~> 0.1', require: false, group: [:development, :test]
+gem 'rubocop-enertia', git: 'git@github.com:enertia-world/rubocop-enertia.git', tag: 'v0.1.0', require: false, group: [:development, :test]
+```
+
+If your `Gemfile` already defines the `github:` shorthand (`git_source(:github) { |repo| "https://github.com/#{repo}.git" }`), this also works:
+
+```ruby
+gem 'rubocop-enertia', github: 'enertia-world/rubocop-enertia', tag: 'v0.1.0', require: false, group: [:development, :test]
 ```
 
 ### Rails apps
@@ -83,7 +91,7 @@ This produces a todo file scoped to the repo's actual current violations under t
 
 ## Versioning
 
-This gem is tagged with semver. Consuming apps pin a range (`~> 0.1`) so a rule change here doesn't silently break every repo's CI at once — bump deliberately per repo.
+Releases are cut by hand: tag a commit here (e.g. `v0.2.0`), no RubyGems push involved. Consuming apps pin an exact `tag:` in their `Gemfile` rather than a version range, so a rule change here never reaches a repo until someone there bumps the tag and runs `bundle update rubocop-enertia` — deliberately, per repo.
 
 ## License
 
