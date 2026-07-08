@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = 'rubocop-enertia'
-  spec.version = '1.0.0'
+  spec.version = '1.0.1'
   spec.authors = ['Enertia World']
   spec.email = ['junaid@enertia.world']
   spec.license = 'MIT'
