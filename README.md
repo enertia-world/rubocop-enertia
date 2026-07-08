@@ -19,13 +19,13 @@ Adding this one gem to your `Gemfile` pulls in `rubocop`, `rubocop-rails`, `rubo
 Add to your `Gemfile`, pinned to a tag from this repo's [releases](https://github.com/enertia-world/rubocop-enertia/tags):
 
 ```ruby
-gem 'rubocop-enertia', git: 'git@github.com:enertia-world/rubocop-enertia.git', tag: 'v1.0.0', require: false, group: [:development, :test]
+gem 'rubocop-enertia', git: 'git@github.com:enertia-world/rubocop-enertia.git', tag: 'v1.0.1', require: false, group: [:development, :test]
 ```
 
 If your `Gemfile` already defines the `github:` shorthand (`git_source(:github) { |repo| "https://github.com/#{repo}.git" }`), this also works:
 
 ```ruby
-gem 'rubocop-enertia', github: 'enertia-world/rubocop-enertia', tag: 'v1.0.0', require: false, group: [:development, :test]
+gem 'rubocop-enertia', github: 'enertia-world/rubocop-enertia', tag: 'v1.0.1', require: false, group: [:development, :test]
 ```
 
 ### Rails apps
@@ -97,6 +97,8 @@ Releases are cut by hand, no RubyGems push involved. For each release:
 2. Tag that commit (e.g. `v1.0.1`) and push the tag.
 
 The gemspec version and the git tag are not linked by any tooling — nothing fails if they drift apart, so keep them in sync by hand. Consuming apps pin an exact `tag:` in their `Gemfile` rather than a version range, so a rule change here never reaches a repo until someone there bumps the tag and runs `bundle update rubocop-enertia` — deliberately, per repo.
+
+The gemspec's `rubocop` dependency is floor-only (`>= 1.88`), so consuming apps can bump their own `gem 'rubocop'` version independently without waiting for a new `rubocop-enertia` tag. `rubocop-rails`, `rubocop-rspec`, `rubocop-factory_bot`, and `rubocop-capybara` stay capped (`~>`), since `rails.yml`/`rspec.yml` reference their cop names directly and an independent bump there risks fragmenting the shared style across apps.
 
 ## License
 
